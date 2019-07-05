@@ -1,0 +1,101 @@
+﻿@model IEnumerable<RegisterationForminMVC.Models.clsUserReg>
+
+@{
+    ViewBag.Title = "GetAllUser";
+}
+
+<h2>User Information</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateRegForm")
+</p>
+
+
+@using (@Html.BeginForm("GetAllUser", "UserRegisteration", FormMethod.Get))
+{
+
+    @Html.RadioButton("searchBy", "EmpName", true) <text>EmpName</text>
+
+    @Html.TextBox("search")
+    <input type="submit" value="search" />
+}
+<table class="table" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bday)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeptName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpAdress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpMob)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bday)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeptName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpAdress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpMob)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.EmpID }) |
+            @Html.ActionLink("Details", "Details", new {  id=item.EmpID })|
+            @Html.ActionLink("Delete", "Delete", new { id = item.EmpID })
+        </td>
+    </tr>
+    }
+
+</table>
+
+
+<div>
+    @Html.ActionLink("Back to List", "GetAllUser")
+</div>
+@*<div class="container">
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+        </ul>
+    </div>*@

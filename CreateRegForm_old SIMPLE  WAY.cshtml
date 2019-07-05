@@ -1,0 +1,80 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registeration</title>
+</head>
+
+
+
+
+
+
+<body>
+
+    <div>
+        <h1>Register Form</h1>
+        @if (ViewBag.message != "")
+        {
+            <h1>@ViewBag.message </h1>
+
+        }
+        @using (Html.BeginForm("CreateRegForm", "UserRegisteration", FormMethod.Post))
+
+        {
+
+
+            <p>Please fill in this form to create an account.</p>
+
+            <b>EmpName</b>
+            <input type="text" placeholder="Enter Name" name="EmpName"><br>
+            <br>
+
+            <b>Date of Birth:</b>
+            <input type="date" name="bday" id="bday">
+            @*<input type="text" name="bday" id="bday">*@
+
+
+            <br>
+            <br />
+
+            <b>Select Department</b>
+            @*<select name="strDep" id="strDep">
+                    <option value="1">IT</option>
+                    <option value="2">Marketing</option>
+                    <option value="3">Finance</option>
+                    <option value="4">Production</option>
+                </select>*@
+
+            @Html.DropDownList("DeptID", new SelectList(ViewBag.Department, "DeptID", "DeptName"), "Please select", new { @id = "ddlDept" })
+
+
+
+            <br>
+
+            <br><b>EmpAddress</b>
+            <input type="text" placeholder="Enter Address" name="EmpAdress"><br>
+
+            <br><b>EmpCity</b>
+            <input type="text" placeholder="Enter City" name="City"><br>
+
+            <br>
+            <b>EmpMobNumber</b>
+            <input type="number" placeholder="Enter Mobile Number" name="EmpMob"><br>
+            <br>
+
+
+
+            <br>
+            <button type="submit">Save</button>
+        }
+
+    </div>
+
+   
+
+
+
+
+</body>
+</html>
+
